@@ -18,6 +18,7 @@ public class PostDto {
     private LocalDateTime updatedAt;
 
     private Integer likesCount;    // 좋아요 수
+    private long commentCount;
 
     public static PostDto from(PostEntity entity, String nickname) {
         if (entity == null) {
@@ -32,6 +33,7 @@ public class PostDto {
                 .createdAt(entity.getCreatedAt())
                 .updatedAt(entity.getUpdatedAt())
                 .likesCount(entity.getPostLikeList() != null ? entity.getPostLikeList().size() : 0)
+                .commentCount(entity.getCommentEntityList() != null ? entity.getCommentEntityList().size() : 0)
                 .build();
     }
 }
